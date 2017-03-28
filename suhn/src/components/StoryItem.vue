@@ -1,9 +1,9 @@
 <template>
   <div class="story-item">
     <div class="event-timeline">
-      <p class="event-item">
-        <a href="#">Study: Kids whose parents hold them back from school a year have advantages</a>
-        <span class="tag is-light"><small>39 comments</small></span>
+      <p class="event-item" v-for="(item, index) in data">
+        {{index + 1}}. <a :href="item.url" target="_blank">{{item.title}}</a>
+        <span class="tag is-light"><small>{{item.descendants}} comments</small></span>
       </p>
     </div>
   </div>
@@ -11,7 +11,8 @@
 
 <script>
 export default {
-  name: 'story-item'
+  name: 'story-item',
+  props: ['data']
 }
 </script>
 
