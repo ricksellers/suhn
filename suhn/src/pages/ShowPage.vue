@@ -1,9 +1,9 @@
 <template>
-  <div class="new-page">
+  <div class="show-page">
     <div class="column is-12">
       <div class="columns">
         <div class="column is-12">
-          <story-item :data="newPosts"></story-item>
+          <story-item :data="showPosts"></story-item>
         </div>
       </div>
     </div>
@@ -15,26 +15,26 @@ import StoryItem from '@/components/StoryItem'
 import axios from 'axios'
 
 export default {
-  name: 'new-page',
+  name: 'show-page',
   components: {
     StoryItem
   },
   data: () => ({
-    newPostIDs: [],
-    newPosts: [],
+    showPostIDs: [],
+    showPosts: [],
     errors: [],
     apiUrl: 'https://hacker-news.firebaseio.com/v0'
   }),
   created () {
-    this.getNewPostIDs()
+    this.getShowPostIDs()
   },
   methods: {
-    getNewPostIDs: function () {
+    getShowPostIDs: function () {
       let _self = this
-      axios.get(this.apiUrl + '/newstories.json?print=pretty')
+      axios.get(this.apiUrl + '/showstories.json?print=pretty')
         .then(response => {
-          this.newPostIDs = response.data.slice(0, 15) // grab 15 posts olny
-          this.newPostIDs.forEach(function (id) {
+          this.showPostIDs = response.data.slice(0, 15) // grab 15 posts olny
+          this.showPostIDs.forEach(function (id) {
             _self.getPostContent(id)
           })
         })
@@ -45,7 +45,7 @@ export default {
     getPostContent: function (id) {
       axios.get(this.apiUrl + `/item/${id}.json?print=pretty`)
         .then(response => {
-          this.newPosts.push(response.data)
+          this.showPosts.push(response.data)
         })
         .catch(e => {
           this.errors.push(e)

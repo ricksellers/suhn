@@ -1,6 +1,9 @@
 body {
   font-family: 'Cabin', sans-serif;
 }
+.section {
+  padding: 1rem 1.5rem !important;
+}
 .has-text-muted {
   color: #95A5A6;
 }

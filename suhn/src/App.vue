@@ -3,13 +3,13 @@
     <nav class="nav hero is-default has-shadow" id="top">
       <div class="container">
         <div class="nav-left">
-          <a class="nav-item" href="../index.html">
-          <p class="logo-circle"></p>
-          <p class="logo">suhn</p>
-          </a>
-          <a class="nav-item">New</a>
-          <a class="nav-item">Show</a>
-          <a class="nav-item">Ask</a>
+          <router-link class="nav-item" to="/" exact>
+            <p class="logo-circle"></p>
+            <p class="logo">suhn</p>
+          </router-link>
+          <router-link class="nav-item" to="new">New</router-link>
+          <router-link class="nav-item" to="show">Show</router-link>
+          <router-link class="nav-item" to="ask">Ask</router-link>
         </div>
       </div>
     </nav>
@@ -22,7 +22,7 @@
       <div class="container">
         <div class="content has-text-centered">
           <p>
-            <strong>suhn</strong> by Rick Sellers. Built using <a href="#">Vue2</a>, <a href="#">axios</a>, <a href="#">Bulma</a>, and <a href="#">HN API</a>.
+            <strong>suhn</strong> by Rick Sellers. Built using <a href="https://vuejs.org/" target="_blank">Vue2</a>, <a href="https://github.com/mzabriskie/axios" target="_blank">axios</a>, <a href="http://bulma.io/" target="_blank">Bulma</a>, and <a href="https://github.com/HackerNews/API" target="_blank">HN API</a>.
           </p>
         </div>
       </div>
