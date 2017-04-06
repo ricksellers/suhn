@@ -31,12 +31,12 @@ body {
   padding: 10px 10px 10px 0;
   border-bottom: 1px solid #f1f1f1;
 }
-.button.is-light {
-    background-color: #eee;
-    background-image: -webkit-linear-gradient(#fcfcfc, #eee);
-    background-image: linear-gradient(#fcfcfc, #eee);
-    border: 1px solid #d5d5d5;
-    border-radius: 3px;
-    padding: 6px 12px;
-    color: #69707a;
-}
+/*.button.is-light {*/
+/*    background-color: #eee;*/
+/*    background-image: -webkit-linear-gradient(#fcfcfc, #eee);*/
+/*    background-image: linear-gradient(#fcfcfc, #eee);*/
+/*    border: 1px solid #d5d5d5;*/
+/*    border-radius: 3px;*/
+/*    padding: 6px 12px;*/
+/*    color: #69707a;*/
+/*}*/

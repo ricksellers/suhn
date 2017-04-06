@@ -22,7 +22,7 @@
       <div class="container">
         <div class="content has-text-centered">
           <p>
-            <strong>suhn</strong> by Rick Sellers. Built using <a href="https://vuejs.org/" target="_blank">Vue2</a>, <a href="https://github.com/mzabriskie/axios" target="_blank">axios</a>, <a href="http://bulma.io/" target="_blank">Bulma</a>, and <a href="https://github.com/HackerNews/API" target="_blank">HN API</a>.
+            <strong>suhn</strong> by Rick Sellers. Built using <a href="https://vuejs.org/" target="_blank">Vue2</a>, <a href="https://github.com/mzabriskie/axios" target="_blank">axios</a>, <a href="http://bulma.io/" target="_blank">Bulma</a>, and <a href="https://github.com/cheeaun/node-hnapi" target="_blank">Unofficial HN API</a>.
           </p>
         </div>
       </div>

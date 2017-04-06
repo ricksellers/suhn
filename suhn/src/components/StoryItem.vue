@@ -3,7 +3,7 @@
     <div class="event-timeline">
       <p class="event-item" v-for="(item, index) in data">
         {{index + 1}}. <a :href="item.url" target="_blank">{{item.title}}</a>
-        <span class="tag is-light"><small>{{item.descendants}} comments</small></span>
+        <span class="tag is-light"><small>{{item.comments_count}} comments</small></span>
       </p>
     </div>
   </div>

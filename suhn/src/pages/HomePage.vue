@@ -3,7 +3,9 @@
     <div class="column is-12">
       <div class="columns">
         <div class="column is-12">
+          <loading-component v-if="isLoading"></loading-component>
           <story-item :data="topPosts"></story-item>
+          <!--<button-component v-on:click.native="nextPage" :data="button1Data"></button-component>-->
         </div>
       </div>
     </div>
@@ -12,44 +14,53 @@
 
 <script>
 import StoryItem from '@/components/StoryItem'
+import ButtonComponent from '@/components/Button'
+import LoadingComponent from '@/components/Loading'
 import axios from 'axios'
 
 export default {
   name: 'home-page',
   components: {
-    StoryItem
+    StoryItem,
+    ButtonComponent,
+    LoadingComponent
   },
   data: () => ({
-    topPostIDs: [],
     topPosts: [],
     errors: [],
-    apiUrl: 'https://hacker-news.firebaseio.com/v0'
+    isLoading: true,
+    button1Data: {
+      title: 'Next Page',
+      url: '#',
+      icon: '',
+      color: 'light'
+    },
+    apiUrl: 'https://node-hnapi.herokuapp.com',
+    postType: 'news',
+    pageNum: 1
   }),
   created () {
-    this.getTopPostIDs()
+    this.getPostContent(this.postType, this.pageNum)
   },
   methods: {
-    getTopPostIDs: function () {
-      let _self = this
-      axios.get(this.apiUrl + '/topstories.json?print=pretty')
+    getPostContent: function (postType, pageNum) {
+      axios.get(this.apiUrl + `/${postType}?page=${pageNum}`)
         .then(response => {
-          this.topPostIDs = response.data.slice(0, 15) // grab 15 posts olny
-          this.topPostIDs.forEach(function (id) {
-            _self.getPostContent(id)
-          })
+          this.$set(this, 'topPosts', response['data'])
+          this.isLoading = false
         })
         .catch(e => {
           this.errors.push(e)
+          console.log(this.errors)
         })
     },
-    getPostContent: function (id) {
-      axios.get(this.apiUrl + `/item/${id}.json?print=pretty`)
-        .then(response => {
-          this.topPosts.push(response.data)
-        })
-        .catch(e => {
-          this.errors.push(e)
-        })
+    nextPage: function () {
+      this.pageNum++
+      this.getPostContent(this.postType, this.pageNum)
+    },
+    lastPage: function () {
+      this.pageNum--
+      this.getPostContent(this.postType, this.pageNum)
     }
   }
 }

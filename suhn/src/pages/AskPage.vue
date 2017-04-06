@@ -20,35 +20,26 @@ export default {
     StoryItem
   },
   data: () => ({
-    askPostIDs: [],
     askPosts: [],
     errors: [],
-    apiUrl: 'https://hacker-news.firebaseio.com/v0'
+    isLoading: true,
+    apiUrl: 'https://node-hnapi.herokuapp.com',
+    postType: 'ask',
+    pageNum: '1'
   }),
   created () {
-    this.getAskPostIDs()
+    this.getPostContent(this.postType, this.pageNum)
   },
   methods: {
-    getAskPostIDs: function () {
-      let _self = this
-      axios.get(this.apiUrl + '/askstories.json?print=pretty')
+    getPostContent: function (postType, pageNum) {
+      axios.get(this.apiUrl + `/${postType}?page=${pageNum}`)
         .then(response => {
-          this.askPostIDs = response.data.slice(0, 15) // grab 15 posts olny
-          this.askPostIDs.forEach(function (id) {
-            _self.getPostContent(id)
-          })
+          this.$set(this, 'askPosts', response['data'])
+          this.isLoading = false
         })
         .catch(e => {
           this.errors.push(e)
-        })
-    },
-    getPostContent: function (id) {
-      axios.get(this.apiUrl + `/item/${id}.json?print=pretty`)
-        .then(response => {
-          this.askPosts.push(response.data)
-        })
-        .catch(e => {
-          this.errors.push(e)
+          console.log(this.errors)
         })
     }
   }
