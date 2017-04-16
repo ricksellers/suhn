@@ -5,7 +5,8 @@
         <div class="column is-12">
           <loading-component v-if="isLoading"></loading-component>
           <story-item :data="topPosts"></story-item>
-          <!--<button-component v-on:click.native="nextPage" :data="button1Data"></button-component>-->
+          <button-component v-if="pageNum > 1" v-on:click.native="lastPage" :data="button1Data"></button-component>
+          <button-component v-on:click.native="nextPage" :data="button2Data"></button-component>
         </div>
       </div>
     </div>
@@ -30,6 +31,12 @@ export default {
     errors: [],
     isLoading: true,
     button1Data: {
+      title: 'Prev Page',
+      url: '#',
+      icon: '',
+      color: 'light'
+    },
+    button2Data: {
       title: 'Next Page',
       url: '#',
       icon: '',
@@ -56,10 +63,16 @@ export default {
     },
     nextPage: function () {
       this.pageNum++
+      if (this.pageNum < 1) {
+        this.pageNum = 1
+      }
       this.getPostContent(this.postType, this.pageNum)
     },
     lastPage: function () {
       this.pageNum--
+      if (this.pageNum < 1) {
+        this.pageNum = 1
+      }
       this.getPostContent(this.postType, this.pageNum)
     }
   }
