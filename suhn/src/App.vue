@@ -31,12 +31,9 @@
 </template>
 
 <script>
-import StoryItem from '@/components/StoryItem'
-
 export default {
   name: 'app',
   components: {
-    StoryItem
   }
 }
 </script>

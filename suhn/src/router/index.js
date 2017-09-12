@@ -4,6 +4,7 @@ import HomePage from '@/pages/HomePage'
 import NewPage from '@/pages/NewPage'
 import ShowPage from '@/pages/ShowPage'
 import AskPage from '@/pages/AskPage'
+import CommentsPage from '@/pages/CommentsPage'
 
 Vue.use(Router)
 
@@ -28,6 +29,11 @@ export default new Router({
       path: '/ask',
       name: 'AskPage',
       component: AskPage
+    },
+    {
+      path: '/comments/:id',
+      name: 'CommentsPage',
+      component: CommentsPage
     }
   ]
 })
