@@ -5,9 +5,18 @@
         <div class="column is-12">
           <loading-component v-if="isLoading"></loading-component>
           <story-item :data="topPosts"></story-item>
-            <button-component v-if="pageNum > 1" v-on:click.native="lastPage" :data="button1Data"></button-component>
-            <button-component v-on:click.native="nextPage" :data="button2Data"></button-component>
         </div>
+      </div>
+      <div class="columns">
+        <div class="column is-4">
+          <button-component class="is-pulled-left" v-if="pageNum > 1" v-on:click.native="lastPage" :data="button1Data"></button-component>
+        </div>
+        <div class="column is-4">
+          <p class="page-number">Page {{ pageNum }}</p>
+        </div>
+        <div class="column is-4">
+         <button-component class="is-pulled-right" v-on:click.native="nextPage" :data="button2Data"></button-component>
+        </div>     
       </div>
     </div>
   </div>
@@ -67,6 +76,7 @@ export default {
         this.pageNum = 1
       }
       this.isLoading = true
+      window.scrollTo(0, 0)
       this.getPostContent(this.postType, this.pageNum)
     },
     lastPage: function () {
@@ -75,6 +85,7 @@ export default {
         this.pageNum = 1
       }
       this.isLoading = true
+      window.scrollTo(0, 0)
       this.getPostContent(this.postType, this.pageNum)
     }
   }

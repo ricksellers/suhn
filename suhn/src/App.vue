@@ -53,4 +53,8 @@ a {
 	height: 20px;
 	margin-top: 5px;
 }
+.page-number {
+  text-align: center;
+  margin-top: 5px;
+}
 </style>
