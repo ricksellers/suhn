@@ -66,6 +66,7 @@ export default {
       if (this.pageNum < 1) {
         this.pageNum = 1
       }
+      this.isLoading = true
       this.getPostContent(this.postType, this.pageNum)
     },
     lastPage: function () {
@@ -73,6 +74,7 @@ export default {
       if (this.pageNum < 1) {
         this.pageNum = 1
       }
+      this.isLoading = true
       this.getPostContent(this.postType, this.pageNum)
     }
   }

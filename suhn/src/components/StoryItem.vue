@@ -2,8 +2,8 @@
   <div class="story-item">
     <div class="event-timeline">
       <p class="event-item" v-for="(item, index) in data">
-        {{index + 1}}. <a :href="item.url" target="_blank">{{item.title}}</a>
-        <span class="tag is-light"><small>{{item.comments_count}} comments</small></span>
+        <a :href="item.url" target="_blank">{{item.title}}</a>
+        <router-link :to="{ name: 'CommentsPage', params: { id: item.id }}"><span class="tag is-light"><small>{{item.comments_count}} comments</small></span></router-link>
       </p>
     </div>
   </div>
@@ -17,4 +17,7 @@ export default {
 </script>
 
 <style scoped>
+.tag {
+  margin-left: 10px;
+}
 </style>

@@ -33,6 +33,7 @@ export default new Router({
     {
       path: '/comments/:id',
       name: 'CommentsPage',
+      props: true,
       component: CommentsPage
     }
   ]

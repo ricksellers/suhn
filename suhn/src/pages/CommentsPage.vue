@@ -1,12 +1,13 @@
 <template>
   <div class="comment-page">
-      <p>COMMENT PAGE</p>
+      <p>COMMENT PAGE - {{ id }}</p>
   </div>
 </template>
 
 <script>
 export default {
-  name: 'comment-page'
+  name: 'comment-page',
+  props: ['id']
 }
 </script>
 
