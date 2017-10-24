@@ -1,15 +1,15 @@
 <template>
   <div id="app">
-    <nav class="nav hero is-default has-shadow" id="top">
+    <nav class="navbar hero is-default has-shadow" id="top">
       <div class="container">
-        <div class="nav-left">
-          <router-link class="nav-item" to="/" exact>
+        <div class="navbar-start">
+          <router-link class="navbar-item" to="/" exact>
             <p class="logo-circle"></p>
             <p class="logo">suhn</p>
           </router-link>
-          <router-link class="nav-item" to="new">New</router-link>
-          <router-link class="nav-item" to="show">Show</router-link>
-          <router-link class="nav-item" to="ask">Ask</router-link>
+          <router-link class="navbar-item" to="new">New</router-link>
+          <router-link class="navbar-item" to="show">Show</router-link>
+          <router-link class="navbar-item" to="ask">Ask</router-link>
         </div>
       </div>
     </nav>

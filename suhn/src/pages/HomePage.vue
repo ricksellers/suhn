@@ -5,8 +5,8 @@
         <div class="column is-12">
           <loading-component v-if="isLoading"></loading-component>
           <story-item :data="topPosts"></story-item>
-          <button-component v-if="pageNum > 1" v-on:click.native="lastPage" :data="button1Data"></button-component>
-          <button-component v-on:click.native="nextPage" :data="button2Data"></button-component>
+            <button-component v-if="pageNum > 1" v-on:click.native="lastPage" :data="button1Data"></button-component>
+            <button-component v-on:click.native="nextPage" :data="button2Data"></button-component>
         </div>
       </div>
     </div>
